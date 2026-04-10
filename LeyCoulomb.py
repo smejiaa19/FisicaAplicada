@@ -20,6 +20,18 @@ class Carga:
         r = math.sqrt(distancia_x ** 2 + distancia_y ** 2)
         return r
     
+    def vector_hacia(self, carga):
+        distancia_x = carga.x - self.x
+        distancia_y = carga.y - self.y
+        r = self.obtener_distancia(carga)
+
+        if r == 0:
+            return (0, 0)
+        
+        return (distancia_x / r, distancia_y / r)
+    
+    
+    
 def input_cargas():
     n = int(input('Ingrese el numero de cargas: \n'))
     for i in range (n):
