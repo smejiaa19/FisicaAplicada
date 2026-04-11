@@ -71,3 +71,22 @@ def input_cargas():
 
     return cargas
 
+def main():
+    print('Carga Objetivo')
+    magnitud = float(input('Ingrese la magnitud de la carga objetivo: \n'))
+    x = float(input('Ingrese la coordenada x: \n'))
+    y = float(input('Ingrese la coordenada y: \n'))
+
+    objetivo = Carga(magnitud, x, y)
+    
+    print('Cargas Externas')
+    cargas = input_cargas()
+
+    Fuerza_x_total, Fuerza_y_total = Carga.fuerza_neta(cargas, objetivo)
+    magnitud_total = Carga.magnitud(Fuerza_x_total, Fuerza_y_total)
+
+    print(f'Fuerza neta: {Fuerza_x_total} y {Fuerza_y_total} N')
+    print(f'Magnitud de la fuerza: {magnitud_total} N')
+
+if __name__== '__main__':
+    main()
